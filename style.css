@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding:0px;
+    font-size: 20px;
+}
+
+body{
+    background-color: #4f46e5;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+#noteContainer{
+    background-color: #0f172a;
+    height: 80vh;
+    width:90vh;
+}
+
+#noteContainer h1{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.taskCard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    padding-top:20px;
+}
+
+#title{
+    height: 30px;
+    width:300px;
+}
+
+#Description{
+    max-height: 300px;
+    min-height: 80px;
+    max-width:300px;
+    min-width: 300px;  
+     
+}
+.add{
+    width:80px;
+    height:50px;
+    margin-top: 20px;
+}
