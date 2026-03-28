@@ -1,67 +1,57 @@
-📝 Notes App (In Progress)
+📝 Notes App (Work in Progress)
 
 📌 Overview
 
-This is a simple Notes App built using HTML, CSS, and JavaScript.
-
-The goal of this project is to improve:
-
-- DOM manipulation
-- UI structuring
-- Thinking before coding
+A simple Notes App built using HTML, CSS, and JavaScript to strengthen understanding of DOM manipulation, UI structuring, and event-driven logic.
 
 ---
 
 🚀 Current Features
 
-- Title input field
-- Description textarea
-- Add button (UI ready)
+- Add Note (Title + Description)
+- Delete specific note
+- Structured UI layout using flexbox
 
 ---
 
 🛠️ Tech Stack
 
 - HTML
-- CSS
-- JavaScript (upcoming)
+- CSS (Flexbox)
+- JavaScript (DOM Manipulation)
 
 ---
 
-📈 Progress
+🎨 UI/UX Design System
 
-This project is being built step-by-step with focus on:
+- Background: #0F172A
+- App Card: #1E293B
+- Note Container: #334155
+- Primary Button: #4F46E5
+- Delete Button: #EF4444
+- Text:
+  - Heading: #F8FAFC
+  - Description: #94A3B8
 
-- Structure
-- Alignment
-- Clean logic
+---
+
+📈 Learning Highlights
+
+- Understanding parent-child DOM structure
+- Event-driven UI updates
+- Debugging through verification instead of guessing
+- Avoiding layout hacks and focusing on structure
 
 ---
 
 🔜 Upcoming Features
 
-- Add note functionality
-- Delete note
-- Edit note
-
----
-
-💡 Learning Focus
-
-Instead of rushing, this project focuses on:
-
-- Planning before coding
-- Understanding parent-child structure
-- Debugging logically
-
----
-
-📷 Preview
-
-(UI will be improved in upcoming updates)
+- Edit note functionality
+- Improved spacing and layout refinement
+- Better UI consistency
 
 ---
 
 ⚠️ Status
 
-🚧 Work in progress
+🚧 In Progress (Learning Project)
