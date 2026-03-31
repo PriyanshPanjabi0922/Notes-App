@@ -1,57 +1,55 @@
-📝 Notes App (Work in Progress)
+# 📝 Notes App
 
-📌 Overview
-
-A simple Notes App built using HTML, CSS, and JavaScript to strengthen understanding of DOM manipulation, UI structuring, and event-driven logic.
+A simple Notes App built using HTML, CSS, and JavaScript to practice DOM manipulation and UI state management.
 
 ---
 
-🚀 Current Features
+## 🚀 Features
 
-- Add Note (Title + Description)
-- Delete specific note
-- Structured UI layout using flexbox
-
----
-
-🛠️ Tech Stack
-
-- HTML
-- CSS (Flexbox)
-- JavaScript (DOM Manipulation)
+- ➕ Add new notes  
+- ❌ Delete notes  
+- ✏️ Edit existing notes  
+- 💾 Save updated notes  
+- ↩️ Cancel edits and restore original content  
 
 ---
 
-🎨 UI/UX Design System
+## 🧠 Key Learnings
 
-- Background: #0F172A
-- App Card: #1E293B
-- Note Container: #334155
-- Primary Button: #4F46E5
-- Delete Button: #EF4444
-- Text:
-  - Heading: #F8FAFC
-  - Description: #94A3B8
+- DOM manipulation and dynamic element creation  
+- Event handling and reattaching event listeners  
+- UI state switching (View Mode ↔ Edit Mode)  
+- Managing old vs new data (Save vs Cancel logic)  
+- Importance of structured thinking before coding  
 
 ---
 
-📈 Learning Highlights
+## ⚙️ Tech Stack
 
-- Understanding parent-child DOM structure
-- Event-driven UI updates
-- Debugging through verification instead of guessing
-- Avoiding layout hacks and focusing on structure
-
----
-
-🔜 Upcoming Features
-
-- Edit note functionality
-- Improved spacing and layout refinement
-- Better UI consistency
+- HTML  
+- CSS  
+- JavaScript (Vanilla)
 
 ---
 
-⚠️ Status
+## 📌 Project Status
 
-🚧 In Progress (Learning Project)
+✔ Core functionality completed  
+🔄 Improvements ongoing  
+
+---
+
+## 🔥 What I Improved
+
+- Fixed save logic using correct input values  
+- Implemented cancel functionality to restore original data  
+- Improved UI structure and layout  
+- Corrected variable naming and spelling inconsistencies  
+
+---
+
+## 📷 Future Improvements
+
+- Add local storage  
+- Improve UI responsiveness  
+- Add animations and transitions
