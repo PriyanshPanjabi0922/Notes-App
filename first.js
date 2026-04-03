@@ -3,10 +3,69 @@ const noteDescription =document.getElementById('Description');
 const addbtn = document.querySelector('button');
 
 
+    function renderEditMode(title,Description,noteContainer){
+            noteContainer.innerHTML = "";
+
+            const input = document.createElement('input');
+            const textarea = document.createElement('textarea');
+
+            input.value = title;
+            textarea.value = Description;
+
+            const savebtn = document.createElement('button');
+            const cancelbtn = document.createElement('button');
+
+            savebtn.textContent = "Save";
+            cancelbtn.textContent = "Cancel";
+
+            savebtn.addEventListener("click",(e)=>{
+                renderviewMode(input.value,textarea.value,noteContainer);
+            });
+
+            cancelbtn.addEventListener("click",(e)=>{
+                renderviewMode(title,Description,noteContainer);
+            });
+
+            noteContainer.append(input,textarea,savebtn,cancelbtn);
+
+    }
+
+    function renderviewMode(title,Description,noteContainer) {
+
+        noteContainer.innerHTML = "";
+        const TitleDiv = document.createElement('div');
+        const TextareaDiv = document.createElement('div');
+
+        TitleDiv.textContent  =title;
+        TextareaDiv.textContent = Description;
+
+        const divEditbtn = document.createElement('button');
+        divEditbtn.textContent = "Edit";
+        divEditbtn.id = "divEditbtn";
+
+         const divDeletebtn  =document.createElement('button');
+        divDeletebtn.textContent = "Delete";
+        divDeletebtn.id = "divDeletebtn";
+
+        divEditbtn.addEventListener("click",(e)=>{
+           
+            renderEditMode(title,Description,noteContainer);
+        })
+
+
+        divDeletebtn.addEventListener("click",(e)=>{
+            e.preventDefault();
+            noteContainer.remove();
+        })
+
+        noteContainer.append(TitleDiv,TextareaDiv,divEditbtn,divDeletebtn);
+    }
+
+
 addbtn.addEventListener("click",(e)=>{
-    
-    const taskCard = document.getElementById('taskCard');
     e.preventDefault();
+    const taskCard = document.getElementById('taskCard');
+    
 
     const titleValue =document.createElement('div');
     const DescriptionValue =document.createElement('div');
@@ -31,66 +90,26 @@ addbtn.addEventListener("click",(e)=>{
     buttonContainer.append(edit,Delete);
     contentContainer.append(titleValue,DescriptionValue);
 
-    noteContainer.append(contentContainer,buttonContainer);
-
-    edit.addEventListener("click",(e)=>{
-        e.preventDefault();
-
-        const storeTitleValue = titleValue.textContent;
-        const storeDescriptionValue  =DescriptionValue.textContent;
-        
-        const input = document.createElement('input');
-        const textarea = document.createElement('textarea');
-        
-        input.value = storeTitleValue;
-        textarea.value = storeDescriptionValue;
-
-        input.id = "input";
-        textarea.id = "textarea";
-
-        const newContentContainer = document.createElement('div');
-
-        newContentContainer.append(input,textarea);
-        newContentContainer.id = "newContentContainer";
-
-        titleValue.remove();
-        DescriptionValue.remove();
-
-
-        noteContainer.append(newContentContainer);
-        Delete.remove();
-        edit.remove();
-
-        // creating the save and cancel btn's
-
-        const save = document.createElement('button');
+    const save = document.createElement('button');
         save.id = "savebtn";
         save.textContent = "Save";
-        const cancel = document.createElement('button');
+    const cancel = document.createElement('button');
         cancel.id = "cancelbtn";
         cancel.textContent = "Cancel";
 
-        // appending the btn's in the newEditButtons
 
-        const newEditButtons  =document.createElement('div');
-        newEditButtons.append(save,cancel);
-        newEditButtons.id = "newEditButtons";
-
-        noteContainer.append(newEditButtons);
-        
-    save.addEventListener("click",(e)=>{
+          save.addEventListener("click",(e)=>{
             e.preventDefault();
+
 
             const saveInput = document.createElement('div');
             const saveTextarea = document.createElement('div');
             const savedContentContainer = document.createElement('div');
 
             saveInput.textContent =input.value ;
-            saveInput.id = "saveInput";
-
+            saveInput.id = "saveInput";  
             saveTextarea.textContent =textarea.value ;
             saveTextarea.id = "saveTextarea";
-
 
             savedContentContainer.append(saveInput,saveTextarea);
 
@@ -108,25 +127,15 @@ addbtn.addEventListener("click",(e)=>{
 
             noteContainer.append(savedContentContainer);
             noteContainer.append(newEditButtonContainer);
-            
 
-            input.remove();
-            textarea.remove();
-            save.remove();
-            cancel.remove();
-            contentContainer.remove();
-            buttonContainer.remove();
-        })
+            renderviewMode();
+ 
+    });
 
     cancel.addEventListener("click",(e)=>{
         e.preventDefault();
 
-        input.remove();
-        textarea.remove();
-        save.remove();
-        cancel.remove();
-        contentContainer.remove();
-        buttonContainer.remove();
+
 
         const oldTitle = document.createElement('div');
         oldTitle.id = "oldTitle";
@@ -152,19 +161,20 @@ addbtn.addEventListener("click",(e)=>{
         oldbtnContainer.id = "oldbtnContainer";
 
         oldbtnContainer.append(oldEditbtn,oldDeletebtn);
-
-
         noteContainer.append(oldDataContainer,oldbtnContainer);
+
+        renderviewMode(oldTitle,oldDiscription,noteContainer);
+
      
-    })
+    });
 
-    })
-
-
+    
     Delete.addEventListener("click",(e)=>{
         e.preventDefault();
         noteContainer.remove();
-    });
 
-    taskCard.append(noteContainer);
-});
+          });
+
+    renderviewMode(noteTitle.value,noteDescription.value,noteContainer);
+     taskCard.append(noteContainer);
+    });
