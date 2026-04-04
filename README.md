@@ -79,7 +79,7 @@ This project focuses on proper UI state management, DOM manipulation, and clean 
 
 ## 🌐 Live Demo
 
-🔗 [View Live Project](#)
+🔗 [ https://priyanshpanjabi0922.github.io/Notes-App/]
 
 ---
 
