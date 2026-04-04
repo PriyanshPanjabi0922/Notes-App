@@ -54,8 +54,6 @@ const addbtn = document.querySelector('button');
 
     function renderviewMode(title,Description,noteContainer) {
 
-        noteTitle.value = "";
-        noteDescription.value = "";
 
         noteContainer.innerHTML = "";
 
@@ -109,117 +107,15 @@ addbtn.addEventListener("click",(e)=>{
         alert("Please Enter Valid Data!!");
         return;
     }
-          
-
-    const taskCard = document.getElementById('taskCard');
-    
-
-    const titleValue =document.createElement('div');
-    const DescriptionValue =document.createElement('div');
-    titleValue.textContent  = noteTitle.value;
-    DescriptionValue.textContent =noteDescription.value;
-    titleValue.id = "titleValue";
-    DescriptionValue.id = "DescriptionValue";
-    
+    const taskCard = document.querySelector('.taskCard');
 
     const noteContainer = document.createElement('div');
-    const edit = document.createElement('button');
-    edit.textContent = "Edit";
-    edit.id = "editbtn";
-    const Delete = document.createElement('button');
-    Delete.textContent = "Delete";
-    Delete.id ="Deletebtn";
-    const contentContainer = document.createElement('div');
-    contentContainer.id = "contentContainer";
-    const buttonContainer = document.createElement('div');
-    buttonContainer.id ="buttonContainer";
-    noteContainer.className = "noteContainer";
-    buttonContainer.append(edit,Delete);
-    contentContainer.append(titleValue,DescriptionValue);
-
-        const save = document.createElement('button');
-        save.id = "savebtn";
-        save.textContent = "Save";
-        const cancel = document.createElement('button');
-        cancel.id = "cancelbtn";
-        cancel.textContent = "Cancel";
-
-   
-
-    save.addEventListener("click",(e)=>{
-            e.preventDefault();
-
-            const saveInput = document.createElement('div');
-            const saveTextarea = document.createElement('div');
-            const savedContentContainer = document.createElement('div');
-
-            saveInput.textContent =input.value ;
-            saveInput.id = "saveInput";  
-            saveTextarea.textContent =textarea.value ;
-            saveTextarea.id = "saveTextarea";
-
-            savedContentContainer.append(saveInput,saveTextarea);
-            savedContentContainer.className = "savedContentContainer";
-
-            const newEditbtn = document.createElement('button');
-            newEditbtn.id = "newEditbtn";
-            newEditbtn.textContent = "Edit";
-
-            const newDeletebtn = document.createElement('button');
-            newDeletebtn.id  ="newDeletebtn";
-            newDeletebtn.textContent = "Delete";
-
-            const newEditButtonContainer = document.createElement('div');
-            newEditButtonContainer.id = "newEditButtonContainer";
-            newEditButtonContainer.append(newEditbtn,newDeletebtn);
-
-            noteContainer.append(savedContentContainer);
-            noteContainer.append(newEditButtonContainer);
-
-            renderviewMode();
- 
-    });
-
-    cancel.addEventListener("click",(e)=>{
-        e.preventDefault();
-
-
-
-        const oldTitle = document.createElement('div');
-        oldTitle.id = "oldTitle";
-        const oldDiscription = document.createElement('div');
-        oldDiscription.id = "oldDiscription";
-        const oldDataContainer = document.createElement('div');
-
-        oldTitle.textContent = saveInput;
-        oldDiscription.textContent = saveTextarea;
-
-        oldDataContainer.append(oldTitle,oldDiscription);
-        oldDataContainer.id  = "oldDataContainer";
-        
-        const oldEditbtn = document.createElement('button');
-        oldEditbtn.id = "oldEditbtn";
-        oldEditbtn.textContent = "Edit";
-
-        const oldDeletebtn = document.createElement('button');
-        oldDeletebtn.id = "oldDeletebtn";
-        oldDeletebtn.textContent = "Delete";
-
-        const oldbtnContainer = document.createElement('div');
-        oldbtnContainer.id = "oldbtnContainer";
-
-        oldbtnContainer.append(oldEditbtn,oldDeletebtn);
-        noteContainer.append(oldDataContainer,oldbtnContainer);
-
-        renderviewMode(oldTitle,oldDiscription,noteContainer);
-    });
-
-    Delete.addEventListener("click",(e)=>{
-        e.preventDefault();
-        noteContainer.remove();
-
-          });
+    noteContainer.className  = "noteContainer";
 
     renderviewMode(noteTitle.value,noteDescription.value,noteContainer);
+
+    noteTitle.value = "";
+        noteDescription.value = "";
+
      taskCard.append(noteContainer);
     });
