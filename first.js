@@ -4,8 +4,17 @@ const addbtn = document.querySelector('button');
 
 
     function renderEditMode(title,Description,noteContainer){
+        
             noteContainer.innerHTML = "";
 
+            noteContainer.classList.add("edit-mode");
+
+            const contentContainer = document.createElement('div');
+            
+            contentContainer.className = "contentContainer";
+
+            const buttonContainer =document.createElement('div');
+            buttonContainer.className = "buttonContainer";
             const input = document.createElement('input');
             const textarea = document.createElement('textarea');
 
@@ -16,25 +25,48 @@ const addbtn = document.querySelector('button');
             const cancelbtn = document.createElement('button');
 
             savebtn.textContent = "Save";
+            savebtn.id = "savebtn";
             cancelbtn.textContent = "Cancel";
+            cancelbtn.id = "cancelbtn";
+
+            buttonContainer.append(savebtn,cancelbtn);
+            contentContainer.append(input,textarea);
+
 
             savebtn.addEventListener("click",(e)=>{
+
+                  if(!input.value.trim() || !textarea.value.trim()){
+                alert("Enter VAlid Data !!");
+                return;
+            }
                 renderviewMode(input.value,textarea.value,noteContainer);
+                
             });
 
             cancelbtn.addEventListener("click",(e)=>{
                 renderviewMode(title,Description,noteContainer);
+               
             });
 
-            noteContainer.append(input,textarea,savebtn,cancelbtn);
+            noteContainer.append(contentContainer,buttonContainer);
 
     }
 
     function renderviewMode(title,Description,noteContainer) {
 
+        noteTitle.value = "";
+        noteDescription.value = "";
+
         noteContainer.innerHTML = "";
+
+        noteContainer.classList.remove("edit-mode");
+
         const TitleDiv = document.createElement('div');
         const TextareaDiv = document.createElement('div');
+
+        TitleDiv.id  ="TitleDiv";
+        TextareaDiv.id = "TextareaDiv";
+        
 
         TitleDiv.textContent  =title;
         TextareaDiv.textContent = Description;
@@ -47,6 +79,14 @@ const addbtn = document.querySelector('button');
         divDeletebtn.textContent = "Delete";
         divDeletebtn.id = "divDeletebtn";
 
+        const contentContainer2 = document.createElement('div');
+        contentContainer2.className = "contentContainer";
+        const buttonsContainer2 = document.createElement('div');
+        buttonsContainer2.className = "buttonsContainer";
+
+        contentContainer2.append(TitleDiv,TextareaDiv);
+        buttonsContainer2.append(divEditbtn,divDeletebtn);
+
         divEditbtn.addEventListener("click",(e)=>{
            
             renderEditMode(title,Description,noteContainer);
@@ -58,12 +98,19 @@ const addbtn = document.querySelector('button');
             noteContainer.remove();
         })
 
-        noteContainer.append(TitleDiv,TextareaDiv,divEditbtn,divDeletebtn);
+        noteContainer.append(contentContainer2,buttonsContainer2);
     }
 
 
 addbtn.addEventListener("click",(e)=>{
     e.preventDefault();
+
+    if(!noteTitle.value.trim() || !noteDescription.value.trim()) {
+        alert("Please Enter Valid Data!!");
+        return;
+    }
+          
+
     const taskCard = document.getElementById('taskCard');
     
 
@@ -72,7 +119,7 @@ addbtn.addEventListener("click",(e)=>{
     titleValue.textContent  = noteTitle.value;
     DescriptionValue.textContent =noteDescription.value;
     titleValue.id = "titleValue";
-    DescriptionValue.id = "DescriotionValue";
+    DescriptionValue.id = "DescriptionValue";
     
 
     const noteContainer = document.createElement('div');
@@ -90,17 +137,17 @@ addbtn.addEventListener("click",(e)=>{
     buttonContainer.append(edit,Delete);
     contentContainer.append(titleValue,DescriptionValue);
 
-    const save = document.createElement('button');
+        const save = document.createElement('button');
         save.id = "savebtn";
         save.textContent = "Save";
-    const cancel = document.createElement('button');
+        const cancel = document.createElement('button');
         cancel.id = "cancelbtn";
         cancel.textContent = "Cancel";
 
+   
 
-          save.addEventListener("click",(e)=>{
+    save.addEventListener("click",(e)=>{
             e.preventDefault();
-
 
             const saveInput = document.createElement('div');
             const saveTextarea = document.createElement('div');
@@ -112,6 +159,7 @@ addbtn.addEventListener("click",(e)=>{
             saveTextarea.id = "saveTextarea";
 
             savedContentContainer.append(saveInput,saveTextarea);
+            savedContentContainer.className = "savedContentContainer";
 
             const newEditbtn = document.createElement('button');
             newEditbtn.id = "newEditbtn";
@@ -143,8 +191,8 @@ addbtn.addEventListener("click",(e)=>{
         oldDiscription.id = "oldDiscription";
         const oldDataContainer = document.createElement('div');
 
-        oldTitle.textContent = storeTitleValue;
-        oldDiscription.textContent = storeDescriptionValue;
+        oldTitle.textContent = saveInput;
+        oldDiscription.textContent = saveTextarea;
 
         oldDataContainer.append(oldTitle,oldDiscription);
         oldDataContainer.id  = "oldDataContainer";
@@ -164,11 +212,8 @@ addbtn.addEventListener("click",(e)=>{
         noteContainer.append(oldDataContainer,oldbtnContainer);
 
         renderviewMode(oldTitle,oldDiscription,noteContainer);
-
-     
     });
 
-    
     Delete.addEventListener("click",(e)=>{
         e.preventDefault();
         noteContainer.remove();
