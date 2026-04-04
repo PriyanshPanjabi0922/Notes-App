@@ -85,7 +85,7 @@ This project focuses on proper UI state management, DOM manipulation, and clean 
 
 ## 📸 Project Preview
 
-![Project Screenshot](./screenshot.png)
+![Project Screenshot](./Screenshot.png)
 
 ---
 
